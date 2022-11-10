@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { productActions } from "../store/slice/product-slice";
 import Modal from "./Modal";
+import classes from "./AddProduct.module.css";
+import Card from "./Ui/Card";
 
 const EditProduct = () => {
   const [showModal, setShowModal] = useState(false);
@@ -39,37 +41,33 @@ const EditProduct = () => {
     show = (
       <Modal
         onConfirm={modalHandler}
-        title="Modal window"
-        message="product edited succseefully"
+        title="Product edited succseefully"
+        message=""
       />
     );
   } else {
     show = (
-      <form onSubmit={formHandler}>
-        <div>Edit product details</div>
-        <div>
+      <Card className={classes.input}>
+        <form onSubmit={formHandler}>
+          <div className={classes.heading}>Edit the product details</div>
           <label htmlFor="name">Product Name : </label>
-          <div>
-            <input
-              type="text"
-              id="name"
-              ref={nameInputref}
-              defaultValue={location.state.name}
-            />
-          </div>
-        </div>
-        <div>
+
+          <input
+            type="text"
+            id="name"
+            ref={nameInputref}
+            defaultValue={location.state.name}
+          />
+
           <label htmlFor="des">Product description : </label>
-          <div>
-            <textarea
-              id="des"
-              ref={desInputref}
-              defaultValue={location.state.desription}
-            />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="price">price : </label>
+
+          <textarea
+            id="des"
+            ref={desInputref}
+            defaultValue={location.state.desription}
+          />
+
+          <label htmlFor="price">Price : </label>
           <input
             type="number"
             id="price"
@@ -77,9 +75,12 @@ const EditProduct = () => {
             min={0}
             defaultValue={location.state.price}
           />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
+
+          <button className={classes.button} type="submit">
+            Add Product
+          </button>
+        </form>
+      </Card>
     );
   }
   return <Fragment>{show}</Fragment>;

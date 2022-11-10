@@ -3,6 +3,7 @@ import AddProduct from "./component/AddProduct";
 import ProductList from "./component/ProductList";
 import EditProduct from "./component/EditProduct";
 import ProductAdmin from "./pages/ProductAdmin";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -11,9 +12,12 @@ function App() {
       <Route path="/product-admin/*" element={<ProductAdmin />}>
         <Route path="product-list/*" element={<ProductList />}>
           <Route path="edit-product" element={<EditProduct />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="add-product" element={<AddProduct />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

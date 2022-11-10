@@ -1,7 +1,51 @@
-.container {
-  border: 5px solid red;
-}
+/* .container {
+  border: 5px solid red; */
+/* } */
 .content {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 1rem;
 }
+.btn_cls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.button {
+  font: inherit;
+  border: 1px solid #4f005f;
+  background: #4f005f;
+  color: white;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.button:hover,
+.button:active {
+  background: #741188;
+  border-color: #741188;
+}
+
+.button:focus {
+  outline: none;
+}
+.btn-cls {
+  display: flex;
+}
+
+/* .container {
+  background-color: #ffff;
+  font-family: sans-serif;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+
+  font-family: arial;
+} */

@@ -1,28 +1,39 @@
 import React, { Fragment } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import classes from "./ProductAdmin.module.css";
 
 const ProductAdmin = () => {
   return (
     <Fragment>
       <header className={classes.header}>
-        {/* <div>Product Admin</div> */}
         <nav>
           <ul className={classes.ul}>
             <li>
-              <Link to="product-list" className={classes.links}>
+              <NavLink
+                className={(navData) =>
+                  navData.isActive ? classes.active : " "
+                }
+                to="product-list"
+              >
                 Product
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="add-product" className={classes.links}>
+              <NavLink
+                className={(navData) =>
+                  navData.isActive ? classes.active : " "
+                }
+                to="add-product"
+              >
                 Add Product
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <div className={classes.outlet}>
+        <Outlet />
+      </div>
     </Fragment>
   );
 };

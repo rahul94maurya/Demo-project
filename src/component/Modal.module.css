@@ -27,10 +27,6 @@
   color: white;
 }
 
-.content {
-  padding: 1rem;
-}
-
 .actions {
   padding: 1rem;
   display: flex;
@@ -42,4 +38,23 @@
     left: calc(50% - 20rem);
     width: 40rem;
   }
+}
+.button {
+  border-radius: 1rem;
+  font: inherit;
+  border: 1px solid #4f005f;
+  background: #4f005f;
+  color: white;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  background: #741188;
+  border-color: #741188;
+}
+
+.button:focus {
+  outline: none;
 }

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetails.module.css";
 import { productActions } from "../store/slice/product-slice";
+import Card from "./Ui/Card";
 
 const Productdetails = (props) => {
   const dispatch = useDispatch();
@@ -15,23 +16,23 @@ const Productdetails = (props) => {
   };
 
   return (
-    <div className={classes.container}>
-      <h3>Product name: {props.data.name}</h3>
+    <Card>
       <div className={classes.content}>
         <div>
-          <div>Product description : {props.data.desription}</div>
-          <div>Product price : {props.data.price}</div>
+          <h4>Product Name : {props.data.name}</h4>
+          <p>{props.data.desription}</p>
+          <strong>price : {props.data.price}</strong>
         </div>
-        <div>
-          <div>
-            <button onClick={deleteHandler}>Delete</button>
-          </div>
-          <div>
-            <button onClick={editHandler}>Edit</button>
-          </div>
+        <div className={classes.btn_cls}>
+          <button className={classes.button} onClick={deleteHandler}>
+            Delete
+          </button>
+          <button className={classes.button} onClick={editHandler}>
+            Edit
+          </button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 export default Productdetails;

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "../store/slice/product-slice";
 // import { sendData } from "../api/api";
 import Modal from "./Modal";
+import Card from "./Ui/Card";
+import classes from "./AddProduct.module.css";
 
 const AddProduct = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,38 +38,24 @@ const AddProduct = () => {
   let show;
   if (showModal) {
     show = (
-      <Modal
-        onConfirm={modalHandler}
-        title="Modal window"
-        message="product Added succseefully"
-      />
+      <Modal onConfirm={modalHandler} title="Product Added succseefully" />
     );
   } else {
     show = (
-      <form onSubmit={formHandler}>
-        <div>Enter the product details</div>
-        <div>
-          <div>
-            <label htmlFor="name">Product Name : </label>
-            <div>
-              <input type="text" id="name" ref={nameInputref} />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="des">Product description : </label>
-            <div>
-              <textarea id="des" ref={desInputref} />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="price">price : </label>
-            <input type="number" id="price" ref={priceInputref} min={0}></input>
-          </div>
-          <div>
-            <button type="submit">Add Product</button>
-          </div>
-        </div>
-      </form>
+      <Card className={classes.input}>
+        <form onSubmit={formHandler}>
+          <div className={classes.heading}>Enter the product details</div>
+          <label htmlFor="name">Product Name : </label>
+          <input type="text" id="name" ref={nameInputref} />
+          <label htmlFor="des">Product description : </label>
+          <textarea id="des" ref={desInputref} />
+          <label htmlFor="price">Price : </label>
+          <input type="number" id="price" ref={priceInputref} min={0}></input>
+          <button className={classes.button} type="submit">
+            Add Product
+          </button>
+        </form>
+      </Card>
     );
   }
   return <Fragment>{show}</Fragment>;
