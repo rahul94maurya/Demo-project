@@ -22,7 +22,7 @@ const ProductList = () => {
         ))}
       </Fragment>
     );
-  } else show = <p>No data found</p>;
+  } else show = <p>No product to show. Please add Product!</p>;
 
   return (
     <Fragment>
